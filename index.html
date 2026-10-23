@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0d0a14">
+<title>InstaKit — Who doesn't follow you back?</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📸</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"><span class="orb one"></span><span class="orb two"></span><span class="orb three"></span></div>
+
+<div class="wrap">
+  <header class="topbar">
+    <div class="brand-logo">📸</div>
+    <div>
+      <h1>INSTA<span>KIT</span></h1>
+      <p class="sub">Instagram follow analyser · 100% private, runs in your browser</p>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h2>Who doesn't<br>follow you back?</h2>
+    <p class="hint">Drop your Instagram data download and find out — the not-followers, the fans, and the mutuals. Your files never leave this device.</p>
+  </div>
+
+  <div class="card glass">
+    <h3>1 · Get your Instagram data</h3>
+    <ol class="steps">
+      <li>Instagram → <b>Settings → Accounts Centre → Your information and permissions → Download your information</b></li>
+      <li>Choose <b>Some of your information → Followers and following</b></li>
+      <li>Format: <b>JSON</b> · Date range: <b>All time</b> — then download the ZIP when it's ready</li>
+    </ol>
+    <h3 style="margin-top:18px">2 · Drop it here</h3>
+    <div class="dropzone" id="drop">
+      <div class="dz-big">📥 Drop your download ZIP or JSON files</div>
+      <div class="dz-small">…or tap to browse — followers_1.json, following.json, or the full ZIP</div>
+    </div>
+    <input type="file" id="filePick" accept=".zip,.json" multiple hidden>
+    <div class="filechips" id="fileChips"></div>
+    <details class="fold">
+      <summary>No files? Paste usernames instead</summary>
+      <div class="pastegrid">
+        <div>
+          <label>People who follow you (one per line)</label>
+          <textarea id="pasteFollowers" placeholder="username1&#10;username2"></textarea>
+        </div>
+        <div>
+          <label>People you follow (one per line)</label>
+          <textarea id="pasteFollowing" placeholder="username1&#10;username2"></textarea>
+        </div>
+      </div>
+      <button class="btn primary" id="pasteGo">Analyse pasted lists</button>
+    </details>
+    <div class="status" id="status"></div>
+  </div>
+
+  <div class="card glass" id="results" style="display:none">
+    <div class="stats">
+      <div class="stat"><b id="stFollowing">0</b><span>Following</span></div>
+      <div class="stat"><b id="stFollowers">0</b><span>Followers</span></div>
+      <div class="stat hot"><b id="stNotBack">0</b><span>Not following back</span></div>
+      <div class="stat"><b id="stMutuals">0</b><span>Mutuals</span></div>
+    </div>
+    <div class="insights" id="insights"></div>
+    <div class="diffbox" id="diffBox" style="display:none"></div>
+    <div class="tabs">
+      <button class="tab active" data-tab="notback">🚫 Not following you back</button>
+      <button class="tab" data-tab="fans">💛 You don't follow back</button>
+      <button class="tab" data-tab="mutuals">🤝 Mutuals</button>
+      <button class="tab" data-tab="pending">⏳ Pending requests</button>
+      <button class="tab" data-tab="timeline">🆕 Followers timeline</button>
+    </div>
+    <input type="text" id="search" placeholder="🔎 Search usernames…">
+    <div class="row">
+      <button class="btn small" id="copyList">📋 Copy list</button>
+      <button class="btn small" id="dlList">⬇ .txt</button>
+      <button class="btn small" id="dlCsv">⬇ .csv</button>
+    </div>
+    <div class="list" id="list"></div>
+    <p class="hint" id="listEmpty" style="display:none">Nothing here 🎉</p>
+  </div>
+
+  <p class="privacy">🔒 Everything is computed locally in your browser. No uploads, no tracking, no Instagram login needed.</p>
+</div>
+
+<div class="xlinks">
+  <div class="t">More free tools by nuvish</div>
+  <div class="row">
+    <a href="https://nuvishh.github.io/EverQR/" target="_blank" rel="noopener"><span class="ic">🔳</span><span>EverQR<small>QR code generator</small></span></a>
+    <a href="https://nuvishh.github.io/PixLite/" target="_blank" rel="noopener"><span class="ic">🗜️</span><span>PixLite<small>Image compressor</small></span></a>
+    <a href="https://nuvishh.github.io/Beamo-Web/" target="_blank" rel="noopener"><span class="ic">⚡</span><span>Beamo Web<small>File sharing</small></span></a>
+  </div>
+</div>
+<footer class="credit">Made with <span class="heart">♥</span> by <a href="https://nuvishh.github.io/" target="_blank" rel="noopener">nuvish</a></footer>
+<script src="app.js"></script>
+</body>
+</html>
