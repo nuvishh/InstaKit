@@ -33,8 +33,8 @@ Single static page — HTML, CSS, vanilla JS (including a tiny built-in ZIP read
 
 ## More free tools by nuvish
 
-- [EverQR](https://nuvishh.github.io/EverQR/) — QR code generator, no expiry
-- [PixLite](https://nuvishh.github.io/PixLite/) — client-side image compressor
+- [LinkGrid](https://nuvishh.github.io/LinkGrid/) — QR code generator, no expiry
+- [SlimByte](https://nuvishh.github.io/SlimByte/) — client-side image optimizer
 - [Beamo Web](https://nuvishh.github.io/Beamo-Web/) — browser-to-browser file sharing
 
 ## License
