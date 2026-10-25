@@ -18,6 +18,7 @@
       <h1>INSTA<span>KIT</span></h1>
       <p class="sub">Instagram follow analyser · 100% private, runs in your browser</p>
     </div>
+    <button class="btn small" style="margin-left:auto" onclick="shareTool(this)" aria-label="Share this tool">↗ Share</button>
   </header>
 
   <div class="hero">
@@ -96,5 +97,22 @@
 <footer class="credit">Made with <span class="heart">♥</span> by <a href="https://nuvishh.github.io/" target="_blank" rel="noopener">nuvish</a></footer>
 <script src="app.js"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0190c2acb1d3447681b44cb1c8fb3c0a"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+async function shareTool(btn){
+  var url = location.href, title = document.title;
+  var done = function(msg){ if(!btn) return; var old = btn.textContent; btn.textContent = msg; setTimeout(function(){ btn.textContent = old; }, 1600); };
+  if (navigator.share) {
+    try { await navigator.share({title: title, url: url}); return; }
+    catch (e) { if (e && e.name === 'AbortError') return; }
+  }
+  try { await navigator.clipboard.writeText(url); done('Copied ✓'); return; }
+  catch (e) {}
+  var ta = document.createElement('textarea');
+  ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); done('Copied ✓'); } catch (e) {}
+  ta.remove();
+}
+</script>
 </body>
 </html>
